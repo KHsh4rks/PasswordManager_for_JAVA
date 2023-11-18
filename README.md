@@ -18,6 +18,8 @@
 
 ・JDK20
 
+・MySQL Workbench 8.0 CE
+
 ## 【要件定義】
 
 ### 目的
