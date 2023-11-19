@@ -6,7 +6,7 @@
 
 職業訓練校で勉強したJava言語をもとに、個人的な学習をかねて作成したポートフォリオです。
 
-内容はシンプルなパスワードマネージャーです。"MySQLの学習"がメインとなっています。
+内容はシンプルなパスワードマネージャーです。"**MySQLの学習**"がメインとなっています。
 
 上記につき、未実装項目があります。バグやコードの修正案があればコメントを頂けると幸いです。
 
@@ -34,7 +34,34 @@
 
 ・MySQLを利用したデータ運用 (接続、認証、書き込み、読込み)
 
-・パスワードの暗号化  <-  ※ 2023/11/19 未実装、学習予定
+・パスワードの暗号化  ※ 期間の都合上、未実装
+
+・管理者設定フォーム  ※ 期間の都合上、未実装
+
+### 【MySQL 接続設定】
+
+| 設定 | 内容 |
+| --- | --- |
+| `ID` | root |
+| `パスワード` | rootpass |
+| `接続` | localhost:3306 |
+
+### 【MySQL DB設定】
+
+| Schema | 内容 |
+| --- | --- |
+| `sample_login` | admin , list |
+
+
+| Table | 内容 |
+| --- | --- |
+| `admin` | id (VARCHAR100,PK,NN) , password (VARCHAR100,NN) |
+| `list` | id (INT,PK,NN,AI) , type (VARCHAR100,NN) , name (VARCHAR100,NN) , username (VARCHAR100,NN) , password (VARCHAR100,NN) , memo (VARCHAR1000,NN) |
+
+| Table 初期値 | id | password |
+| --- | --- | --- |
+| `admin` | admin | passwrod |
+| `list` |  |  |
 
 ### スケジュール
 2023年11月17日(金) 　要件確認、整理、（開発）
