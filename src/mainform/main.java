@@ -5,9 +5,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import static javax.swing.SwingConstants.LEFT;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import loginform.login;
 
 public class main extends javax.swing.JFrame {
@@ -100,7 +108,7 @@ public class main extends javax.swing.JFrame {
             ResultSet result = statement.executeQuery();
 
             while(result.next()) {
-                String number = Integer.valueOf(result.getInt("id")).toString();
+                String number = String.valueOf(result.getInt("id"));
                 String type = String.valueOf(result.getString("type"));
                 String name = String.valueOf(result.getString("name"));
                 String username = String.valueOf(result.getString("username"));
@@ -118,6 +126,12 @@ public class main extends javax.swing.JFrame {
         }catch (SQLException e){
             e.printStackTrace();
         }
+
+        // "管理No." を中央揃えにする
+        DefaultTableCellRenderer tableCellRenderer = new DefaultTableCellRenderer();
+        tableCellRenderer.setHorizontalAlignment(JLabel.CENTER);
+        TableColumn col = jTable1.getColumnModel().getColumn(0);
+        col.setCellRenderer(tableCellRenderer);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -600,7 +614,14 @@ public class main extends javax.swing.JFrame {
             
     }catch (SQLException e){
         e.printStackTrace();     
-    }       
+    }
+    
+    // "管理No." を中央揃えにする
+    DefaultTableCellRenderer tableCellRenderer = new DefaultTableCellRenderer();
+    tableCellRenderer.setHorizontalAlignment(JLabel.CENTER);    
+    TableColumn col = jTable1.getColumnModel().getColumn(0);
+    col.setCellRenderer(tableCellRenderer);
+    
   }
     
     // ■ メソッド - ボタン非表示、テキストボックス初期化
@@ -619,8 +640,7 @@ public class main extends javax.swing.JFrame {
     
     }
 
-    
-    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Change_jButton;
     private javax.swing.JButton Delete_jButton;
